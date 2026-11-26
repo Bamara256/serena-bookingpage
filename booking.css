@@ -1,0 +1,269 @@
+/* Reset & base  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #3a2a2a;
+    background-color: #FFFFF0;
+}
+
+
+/* Visually hidden text for screen readers */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+
+/* Sticky navbar  */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #800020;
+    padding: 10px 30px;
+    border-bottom: 3px solid #C9A84C;
+}
+
+.logo {
+    height: 50px;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #FFFFF0;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #C9A84C;
+}
+
+
+/*  Hero  */
+
+.hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Dark overlay so the text stays readable */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 0, 15, 0.55);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: #FFFFF0;
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.book-btn {
+    display: inline-block;
+    background-color: #C9A84C;
+    color: #800020;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.book-btn:hover {
+    background-color: #FFFFF0;
+}
+
+
+/* Sections  */
+
+.section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px 30px 20px;
+    /* keeps headings clear of the sticky navbar after a jump */
+    scroll-margin-top: 70px;
+}
+
+.section h2 {
+    color: #800020;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.section h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #C9A84C;
+    margin: 10px auto 0 auto;
+}
+
+
+/*  Room cards: Flexbox, 2 per row */
+
+.room-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.room-card {
+    flex: 0 0 calc(50% - 10px);
+    background-color: #ffffff;
+    border: 1px solid #C9A84C;
+    border-top: 5px solid #800020;
+    border-radius: 6px;
+    padding: 25px;
+}
+
+.room-card h3 {
+    color: #800020;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.room-card .price {
+    color: #8a6d1d;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.room-card .price span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.room-card p {
+    line-height: 1.5;
+}
+
+
+/* ===== Comparison table ===== */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.compare-table th,
+.compare-table td {
+    border: 1px solid #d8cfa8;
+    padding: 12px;
+    text-align: center;
+}
+
+.compare-table thead th {
+    background-color: #800020;
+    color: #ffffff;
+}
+
+.compare-table tbody th {
+    text-align: left;
+    background-color: #f7f2d8;
+    color: #800020;
+}
+
+.compare-table .yes {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.compare-table .no {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/*  Booking placeholder  */
+
+.booking-note {
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+
+/* Small screens */
+
+@media (max-width: 700px) {
+    .room-card {
+        flex: 0 0 100%;
+    }
+    .hero-content h1 {
+        font-size: 30px;
+    }
+    .navbar {
+        padding: 10px 15px;
+    }
+    .nav-links {
+        gap: 14px;
+    }
+}
